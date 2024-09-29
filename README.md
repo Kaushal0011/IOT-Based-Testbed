@@ -4,6 +4,7 @@ This project is funded by **IIT Kanpur** in collaboration with **IIIT Allahabad*
 
 **Initial Phase: Gathering Device Information**
 **OS Version Detection:**
+
 Purpose: Identifying the operating system version allows attackers to check if the device is running vulnerable or outdated software.
 
 Method: Tools such as nmap can be used to scan the device and gather OS details. A script can automate this process to detect multiple devices on the same network.
@@ -24,6 +25,7 @@ Method: A script can analyze SSL/TLS certificates or SSH details to determine if
 
 After gathering this information, the attacker can proceed with the specific attacks that are most suitable based on the vulnerabilities identified.
 
+
 **1. SSH Downgrade Attack on IoT Devices**
   An SSH downgrade attack involves forcing an SSH connection to downgrade to an older version of the protocol, such as SSHv1, which has known vulnerabilities. This attack weakens the encryption strength of the communication, allowing an attacker to intercept and decrypt sensitive data alongside with already used attack scripts and methods of known vulnerabilities.
 
@@ -42,6 +44,7 @@ Tools and Scripting
 A Python script using paramiko or low-level packet manipulation with scapy can automate this process by tampering with the handshake protocol negotiation.
 
 Example: An IoT smart camera uses SSH for remote management. The attacker downgrades the SSH connection to a vulnerable version and intercepts credentials, gaining control of the camera feed.
+
 
 **2. ARP Poisoning Attack on IoT Devices**
 
@@ -64,6 +67,7 @@ Tools like arpspoof or bettercap are commonly used for ARP poisoning, but custom
 A script can automate ARP spoofing by continuously sending malicious ARP replies to maintain the poisoned ARP cache of the target device.
 
 Example: An attacker uses ARP spoofing to intercept and manipulate traffic from a smart door lock on the same network, allowing unauthorized control of the lock.
+
 
 **3. Deauthentication (Deauth) Attack on IoT Devices**
 
