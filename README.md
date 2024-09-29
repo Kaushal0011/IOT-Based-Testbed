@@ -1,25 +1,25 @@
-This project is funded by IIT Kanpur in collaboration with IIITA, under the guidance of Dr. S. Venkatesan, A web interface tool focuses on automating network-level attacks on IoT (Internet of Things) devices. The objective is to highlight vulnerabilities by performing SSH downgrade, ARP poisoning, and Deauth attacks. Scripts are written to first gather details such as the OS version, MAC address, and certificate validity of IoT devices, followed by the execution of these attacks while it is necessary that the attacker and adversary is in the same network and IP address of targeted address should be known.
-The growing deployment of IoT devices in everyday life presents unique security challenges. These devices often have limited security mechanisms, making them prime targets for attacks, especially when they operate on the same local network as the attacker.
-Initial Phase: Gathering Device Information
-OS Version Detection:
+This project is funded by **IIT Kanpur** in collaboration with **IIIT Allahabad**, under the guidance of **Dr. S. Venkatesan**, A web interface tool focuses on automating network-level attacks on IoT (Internet of Things) devices. The objective is to highlight vulnerabilities by performing SSH downgrade, ARP poisoning, and Deauth attacks. Scripts are written to first gather details such as the OS version, MAC address, and certificate validity of IoT devices, followed by the execution of these attacks while it is necessary that the attacker and adversary is in the same network and IP address of targeted address should be known.
+  
+  The growing deployment of IoT devices in everyday life presents unique security challenges. These devices often have limited security mechanisms, making them prime targets for attacks, especially when they operate on the same local network as the attacker.
+
+**Initial Phase: Gathering Device Information**
+**OS Version Detection:**
 Purpose: Identifying the operating system version allows attackers to check if the device is running vulnerable or outdated software.
 Method: Tools such as nmap can be used to scan the device and gather OS details. A script can automate this process to detect multiple devices on the same network.
 Example: Running nmap -O <target_IP> provides the OS version of the IoT device, revealing potential downgrade vulnerabilities.
-MAC Address Identification:
+**MAC Address Identification:**
 Purpose: The MAC address uniquely identifies devices on the local network. Attackers need this information to perform ARP spoofing or deauthentication attacks.
 Method: Network scanning tools such as arp-scan. A script could automate the capture of ARP packets to extract this information.
-Certificate Validity Check:
+**Certificate Validity Check:**
 Purpose: IoT devices often rely on SSL/TLS or SSH certificates for secure communication. Checking for expired or misconfigured certificates helps identify weaknesses in the encryption.
 Method: A script can analyze SSL/TLS certificates or SSH details to determine if the certificates are expired or not properly configured.
 After gathering this information, the attacker can proceed with the specific attacks that are most suitable based on the vulnerabilities identified.
 
-1. SSH Downgrade Attack on IoT Devices
-Overview
-An SSH downgrade attack involves forcing an SSH connection to downgrade to an older version of the protocol, such as SSHv1, which has known vulnerabilities. This attack weakens the encryption strength of the communication, allowing an attacker to intercept and decrypt sensitive data alongside with already used attack scripts and methods of known vulnerabilities.
-Attack Execution in IoT Context
+****1. SSH Downgrade Attack on IoT Devices****
+  An SSH downgrade attack involves forcing an SSH connection to downgrade to an older version of the protocol, such as SSHv1, which has known vulnerabilities. This attack weakens the encryption strength of the communication, allowing an attacker to intercept and decrypt sensitive data alongside with already used attack scripts and methods of known vulnerabilities.
+**Attack Execution in IoT Context**  
 Prerequisites: The attacker must know the IP address of the IoT device and be on the same network to intercept the SSH connection.
-Script Process:
-Intercept SSH Handshake: The script intercepts the initial handshake between the IoT device and its SSH management server.
+Script Process:Intercept SSH Handshake: The script intercepts the initial handshake between the IoT device and its SSH management server.
 Downgrade the Protocol: By modifying the handshake, the attacker forces the device to use a weaker protocol version (e.g., SSHv1 instead of SSHv2).
 Exploit Weak Encryption: With the downgraded protocol, the attacker can decrypt traffic, steal credentials, or even gain unauthorized access to the device.
 Tools and Scripting
